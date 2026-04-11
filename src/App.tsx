@@ -4,8 +4,9 @@ import Home from "./pages/home";
 import Products from "./pages/Products";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
+import Orders from "./pages/Orders";
+import Navbar from "./components/Navbar";
 import { useState } from "react";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             />
           }
         />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
@@ -45,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;;
