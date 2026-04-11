@@ -163,3 +163,15 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+.why-us,
+.promo-banner {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.promo-banner {
+  background-color: beige;
+  border-radius: 15px;
+  margin: 40px;
+}

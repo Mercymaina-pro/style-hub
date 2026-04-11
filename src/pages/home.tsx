@@ -41,6 +41,20 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="why-us">
+        <h2 className="section-title">Why Choose StyleHub?</h2>
+        <div className="categories">
+          <div className="card">Fast Delivery</div>
+          <div className="card">Quality Fashion</div>
+          <div className="card">Affordable Prices</div>
+        </div>
+      </section>
+
+      <section className="promo-banner">
+        <h2>New Arrivals Every Week ✨</h2>
+        <p>Stay ahead with the latest fashion trends.</p>
+      </section>
     </>
   );
 }
