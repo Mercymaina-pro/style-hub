@@ -1,26 +1,40 @@
 nav {
-  background-color: #111111;
-  color: white;
-  padding: 20px 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
 }
 
 nav h2 {
-  margin: 0;
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
+  gap: 20px;
+  list-style: none;
 }
 
-nav li {
-  cursor: pointer;
-  font-size: 18px;
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.category-dropdown,
+.search-bar {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.search-bar {
+  width: 220px;
 }

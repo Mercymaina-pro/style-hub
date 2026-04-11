@@ -1,43 +1,45 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import "./App.css";
 import Home from "./pages/home";
 import Products from "./pages/Products";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
+import Cart from "./pages/Cart";
+import { useState } from "react";
 
 function App() {
-  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [cart, setCart] = useState<string[]>([]);
 
-  function addToCart(productName: string) {
-    setCartItems([...cartItems, productName]);
-  }
+  const addToCart = (productName: string) => {
+    setCart([...cart, productName]);
+  };
 
-  function removeFromCart(indexToRemove: number) {
-    setCartItems(cartItems.filter((_, index) => index !== indexToRemove));
-  }
+  const removeFromCart = (index: number) => {
+    setCart(cart.filter((_, i) => i !== index));
+  };
 
   return (
     <BrowserRouter>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home addToCart={addToCart} />} />
-        <Route path="/products" element={<Products addToCart={addToCart} />}
-/> 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/products"
+          element={<Products addToCart={addToCart} />}
+        />
         <Route
           path="/cart"
           element={
             <Cart
-              cartItems={cartItems}
+              cartItems={cart}
               removeFromCart={removeFromCart}
             />
           }
         />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
