@@ -1,24 +1,25 @@
-function Cart() {
+type CartProps = {
+  cartItems: string[];
+  removeFromCart: (index: number) => void;
+};
+
+function Cart({ cartItems, removeFromCart }: CartProps) {
   return (
     <section className="login-page">
       <h2>Your Cart</h2>
 
-      <div className="products">
-        <div className="product-card">
-          <h3>Classic Hoodie</h3>
-          <p>Ksh 2500</p>
-          <button>Remove</button>
-        </div>
-
-        <div className="product-card">
-          <h3>Summer Dress</h3>
-          <p>Ksh 1800</p>
-          <button>Remove</button>
-        </div>
-      </div>
-
-      <h3>Total: Ksh 4300</h3>
-      <button>Proceed to Checkout</button>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        cartItems.map((item, index) => (
+          <div className="product-card" key={index}>
+            <h3>{item}</h3>
+            <button onClick={() => removeFromCart(index)}>
+              Remove
+            </button>
+          </div>
+        ))
+      )}
     </section>
   );
 }
