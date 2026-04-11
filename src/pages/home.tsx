@@ -1,9 +1,6 @@
-import Navbar from "../components/Navbar";
-
 function Home() {
   return (
     <>
-        <Navbar />
       <section className="hero">
         <h1>Welcome to StyleHub</h1>
         <p>Your one-stop fashion destination for everyone.</p>

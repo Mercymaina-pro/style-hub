@@ -1,9 +1,7 @@
-import Navbar from "../components/Navbar";
-
 function Products() {
   return (
     <>
-      <Navbar />
+      
 
       <section className="featured">
         <h2 className="section-title">All Products</h2>

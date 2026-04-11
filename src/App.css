@@ -127,3 +127,39 @@ body {
   gap: 40px;
   padding: 25px;
 }
+
+.login-page {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.login-page h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.login-form input {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.login-form button {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: beige;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
