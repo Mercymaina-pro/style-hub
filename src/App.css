@@ -1,6 +1,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background-color: #fdf7f2;
+  color: #222;
 }
 
 .hero {
@@ -217,4 +219,44 @@ body {
   background-color: black;
   color: white;
   cursor: pointer;
+}
+
+.hero {
+  background: linear-gradient(135deg, #f5e6d3, #fffaf5);
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+}
+
+.category-section,
+.featured,
+.why-us,
+.promo-banner {
+  margin: 40px 20px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background-color: #fffaf5;
+}
+
+.hero h1 {
+  animation: floatText 3s ease-in-out infinite;
+}
+
+@keyframes floatText {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+button:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
 }

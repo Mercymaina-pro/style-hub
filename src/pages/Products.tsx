@@ -9,7 +9,11 @@ function Products({ addToCart }: ProductsProps) {
 
       <div className="products">
         <div className="product-card">
-          <div className="product-image"></div>
+          <img
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+            alt="Classic Hoodie"
+            className="product-image"
+          />
           <h3>Classic Hoodie</h3>
           <p>Ksh 2500</p>
           <button onClick={() => addToCart("Classic Hoodie")}>
