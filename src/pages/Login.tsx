@@ -4,17 +4,22 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (email === "" || password === "") {
+      alert("Please fill in both email and password.");
+      return;
+    }
+
+    alert("Login submitted successfully!");
+  }
+
   return (
     <section className="login-page">
       <h2>Login to StyleHub</h2>
 
-      <form
-        className="login-form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          alert("Login submitted successfully!");
-        }}
-      >
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Enter your email"
