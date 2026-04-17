@@ -1,7 +1,12 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+type NavbarProps = {
+  searchTerm: string;
+  setSearchTerm: (value: string) => void;
+};
+
+function Navbar({ searchTerm, setSearchTerm }: NavbarProps) {
   return (
     <nav>
       <h2>STYLEHUB</h2>
@@ -19,6 +24,8 @@ function Navbar() {
           type="text"
           placeholder="Search products..."
           className="search-bar"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
 

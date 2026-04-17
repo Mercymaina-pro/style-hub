@@ -11,6 +11,7 @@ import { useState } from "react";
 
 function App() {
   const [cart, setCart] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const addToCart = (productName: string) => {
     setCart([...cart, productName]);
@@ -22,14 +23,21 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route
           path="/products"
-          element={<Products addToCart={addToCart} />}
+          element={
+            <Products
+              addToCart={addToCart}
+              searchTerm={searchTerm}
+            />
+          }
         />
+
         <Route
           path="/cart"
           element={
@@ -39,6 +47,7 @@ function App() {
             />
           }
         />
+
         <Route path="/orders" element={<Orders />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -47,4 +56,4 @@ function App() {
   );
 }
 
-export default App;;
+export default App;

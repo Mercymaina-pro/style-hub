@@ -1,7 +1,6 @@
-import { useState } from "react";
-
 type ProductsProps = {
   addToCart: (productName: string) => void;
+  searchTerm: string;
 };
 
 type Product = {
@@ -11,10 +10,7 @@ type Product = {
   image: string;
 };
 
-function Products({ addToCart }: ProductsProps) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
+function Products({ addToCart, searchTerm }: ProductsProps) {
   const products: Product[] = [
     {
       name: "Classic Hoodie",
@@ -39,42 +35,13 @@ function Products({ addToCart }: ProductsProps) {
     },
   ];
 
-  const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.name
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
-
-    const matchesCategory =
-      selectedCategory === "All" ||
-      product.category === selectedCategory;
-
-    return matchesSearch && matchesCategory;
-  });
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <section className="featured">
       <h2 className="section-title">All Products</h2>
-
-      <div className="nav-controls" style={{ marginBottom: "20px" }}>
-        <select
-          className="category-dropdown"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="All">All Categories</option>
-          <option value="Women">Women</option>
-          <option value="Men">Men</option>
-          <option value="Shoes">Shoes</option>
-        </select>
-
-        <input
-          type="text"
-          placeholder="Search products..."
-          className="search-bar"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
 
       <div className="products">
         {filteredProducts.map((product, index) => (
