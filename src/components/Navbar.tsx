@@ -4,20 +4,30 @@ import { Link } from "react-router-dom";
 type NavbarProps = {
   searchTerm: string;
   setSearchTerm: (value: string) => void;
+  category: string;
+  setCategory: (value: string) => void;
 };
 
-function Navbar({ searchTerm, setSearchTerm }: NavbarProps) {
+function Navbar({
+  searchTerm,
+  setSearchTerm,
+  category,
+  setCategory,
+}: NavbarProps) {
   return (
     <nav>
       <h2>STYLEHUB</h2>
 
       <div className="nav-controls">
-        <select className="category-dropdown">
-          <option>All Categories</option>
-          <option>Women</option>
-          <option>Men</option>
-          <option>Kids</option>
-          <option>Shoes</option>
+        <select
+          className="category-dropdown"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="All">All Categories</option>
+          <option value="Women">Women</option>
+          <option value="Men">Men</option>
+          <option value="Shoes">Shoes</option>
         </select>
 
         <input

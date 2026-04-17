@@ -12,6 +12,7 @@ import { useState } from "react";
 function App() {
   const [cart, setCart] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("All");
 
   const addToCart = (productName: string) => {
     setCart([...cart, productName]);
@@ -23,7 +24,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Navbar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        category={category}
+        setCategory={setCategory}
+      />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -34,6 +40,7 @@ function App() {
             <Products
               addToCart={addToCart}
               searchTerm={searchTerm}
+              category={category}
             />
           }
         />

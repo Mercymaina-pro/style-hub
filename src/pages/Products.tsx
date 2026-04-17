@@ -1,6 +1,7 @@
 type ProductsProps = {
   addToCart: (productName: string) => void;
   searchTerm: string;
+  category: string;
 };
 
 type Product = {
@@ -10,7 +11,7 @@ type Product = {
   image: string;
 };
 
-function Products({ addToCart, searchTerm }: ProductsProps) {
+function Products({ addToCart, searchTerm, category }: ProductsProps) {
   const products: Product[] = [
     {
       name: "Classic Hoodie",
@@ -35,30 +36,43 @@ function Products({ addToCart, searchTerm }: ProductsProps) {
     },
   ];
 
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+
+    const matchesCategory =
+      category === "All" || product.category === category;
+
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <section className="featured">
       <h2 className="section-title">All Products</h2>
 
-      <div className="products">
-        {filteredProducts.map((product, index) => (
-          <div className="product-card" key={index}>
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-image"
-            />
-            <h3>{product.name}</h3>
-            <p>{product.price}</p>
-            <button onClick={() => addToCart(product.name)}>
-              Add to Cart
-            </button>
-          </div>
-        ))}
-      </div>
+      {filteredProducts.length === 0 ? (
+        <p style={{ textAlign: "center", marginTop: "20px" }}>
+          No products found 😢
+        </p>
+      ) : (
+        <div className="products">
+          {filteredProducts.map((product, index) => (
+            <div className="product-card fade-in" key={index}>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-image"
+              />
+              <h3>{product.name}</h3>
+              <p>{product.price}</p>
+              <button onClick={() => addToCart(product.name)}>
+                Add to Cart
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
